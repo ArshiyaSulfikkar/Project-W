@@ -137,3 +137,13 @@ app.post("/api/pickup-request", async (req, res) => {
 app.listen(process.env.PORT || 5000, () => {
   console.log("Server running");
 });
+
+app.get("/api/test-db", async (req, res) => {
+  try {
+    const r = await pool.query("SELECT NOW()");
+    res.json(r.rows);
+  } catch (e) {
+    console.error("DB ERROR:", e);
+    res.status(500).json({ error: "db failed" });
+  }
+});

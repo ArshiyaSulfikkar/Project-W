@@ -1,3 +1,6 @@
+const API = "http://localhost:5000";
+
+
 function goTo(path) {
   window.location.href = path;
 }
